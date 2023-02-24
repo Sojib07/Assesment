@@ -5,24 +5,27 @@
     ViewBag.Title = "Answers";
 }
 
-<h1>Answers</h1>
-
-<table>
-    <thead>
-        <tr>
-            <th>Answer ID</th>
-            <th>Score</th>
-            <th>Is Accepted</th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var answer in Model)
-        {
-            <tr>
-                <td>@answer.answer_id</td>
-                <td>@answer.score</td>
-                <td>@answer.is_accepted</td>
-            </tr>
-        }
-    </tbody>
-</table>
+<div class="card">
+    <h5 class="card-header">Answers</h5>
+    <div class="card-body">
+        <table class="table text-center">
+            <thead class="thead-dark">
+                <tr>
+                    <th scope="col">Answer ID</th>
+                    <th scope="col">Score</th>
+                    <th scope="col">Is Accepted</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var answer in Model)
+                {
+                    <tr>
+                        <td>@answer.answer_id</td>
+                        <td>@answer.score</td>
+                        <td>@answer.is_accepted</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

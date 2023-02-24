@@ -9,6 +9,8 @@ namespace Assesment.Web
         {
             builder.RegisterType<QuestionModel>().AsSelf();
             builder.RegisterType<AnswerModel>().AsSelf();
+            builder.RegisterType<BookModel>().AsSelf();
+            builder.RegisterType<AuthorModel>().AsSelf();
 
             base.Load(builder);
         }

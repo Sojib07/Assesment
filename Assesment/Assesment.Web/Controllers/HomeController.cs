@@ -1,5 +1,6 @@
 ﻿using Assesment.Infrastructure.Services;
 using Assesment.Web.Models;
+using Autofac;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 
@@ -8,22 +9,24 @@ namespace Assesment.Web.Controllers
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
-        private readonly IAuthorService _authorService;
-        private readonly IBookService _bookService;
+        private readonly ILifetimeScope _scope;
 
-        public HomeController(ILogger<HomeController> logger, IAuthorService authorService, IBookService bookService)
+        public HomeController(ILogger<HomeController> logger, ILifetimeScope scope)
         {
             _logger = logger;
-            _authorService = authorService;
-            _bookService = bookService;
+            _scope = scope;
         }
 
         public async Task<IActionResult> Index()
         {
-            var list= await _authorService.GetAllAuthors();
-            var list2= await _bookService.GetAllBooks();
-            var list3 = await _bookService.GetAllBooksWithStoredProcedure();
-            var list4 = await _authorService.GetAllAuthorsWithStoredProcedure();
+            var bookModel = _scope.Resolve<BookModel>();
+            var authorModel=_scope.Resolve<AuthorModel>();
+
+            var a = bookModel.GetAllBooks();
+            var b=bookModel.GetAllBooksWithStoredProcedure();
+
+            var c = authorModel.GetAllAuthors();
+            var d = authorModel.GetAllAuthorsWithStoredProcedure();
 
             return View();
         }
