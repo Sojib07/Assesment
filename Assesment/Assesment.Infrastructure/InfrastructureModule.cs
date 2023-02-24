@@ -43,6 +43,9 @@ namespace Assesment.Infrastructure
             builder.RegisterType<AuthorRepository>().As<IAuthorRepository>()
                 .InstancePerLifetimeScope();
 
+            builder.RegisterType<StackOverflowService>().As<IStackOverflowService>()
+                .InstancePerLifetimeScope();
+
             builder.RegisterType<BookRepository>().As<IBookRepository>()
                 .InstancePerLifetimeScope();
 

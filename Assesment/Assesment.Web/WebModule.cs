@@ -1,4 +1,5 @@
-﻿using Autofac;
+﻿using Assesment.Web.Models;
+using Autofac;
 
 namespace Assesment.Web
 {
@@ -6,13 +7,8 @@ namespace Assesment.Web
     {
         protected override void Load(ContainerBuilder builder)
         {
-            //builder.RegisterType<CourseModel>().As<ICourseModel>()
-            //    .InstancePerLifetimeScope();
-
-            //builder.RegisterType<CourseModel>().AsSelf();
-            //builder.RegisterType<CourseCreateModel>().AsSelf();
-            //builder.RegisterType<CourseEditModel>().AsSelf();
-            //builder.RegisterType<CourseListModel>().AsSelf();
+            builder.RegisterType<QuestionModel>().AsSelf();
+            builder.RegisterType<AnswerModel>().AsSelf();
 
             base.Load(builder);
         }

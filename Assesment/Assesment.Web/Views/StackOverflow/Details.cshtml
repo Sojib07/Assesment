@@ -1,0 +1,28 @@
+﻿@using Assesment.Infrastructure.Models;
+@model IList<Answer>
+
+@{
+    ViewBag.Title = "Answers";
+}
+
+<h1>Answers</h1>
+
+<table>
+    <thead>
+        <tr>
+            <th>Answer ID</th>
+            <th>Score</th>
+            <th>Is Accepted</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var answer in Model)
+        {
+            <tr>
+                <td>@answer.answer_id</td>
+                <td>@answer.score</td>
+                <td>@answer.is_accepted</td>
+            </tr>
+        }
+    </tbody>
+</table>

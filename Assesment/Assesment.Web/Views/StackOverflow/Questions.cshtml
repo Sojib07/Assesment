@@ -1,0 +1,28 @@
+﻿@using Assesment.Infrastructure.Models;
+@model IList<Question>
+
+@{
+    ViewBag.Title = "Questions";
+}
+
+<h1>Questions</h1>
+
+<table>
+    <thead>
+        <tr>
+            <th>Title</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var question in Model)
+        {
+            <tr>
+@*                <td>@Html.ActionLink(question.Title, "Details", new { id = question.question_id })</td>*@
+                @*<td><a asp-controller="StackOverflow" asp-action="Answer" asp-route="@question.question_id">@question.Title</a></td>*@
+                <td>
+                    <a asp-controller="StackOverflow" asp-action="Details" asp-route-id="@question.question_id">@question.Title</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
