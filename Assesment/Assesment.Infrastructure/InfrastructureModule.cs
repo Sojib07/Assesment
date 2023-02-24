@@ -1,13 +1,8 @@
-﻿using Autofac;
-using Assesment.Infrastructure.DbContexts;
+﻿using Assesment.Infrastructure.DbContexts;
 using Assesment.Infrastructure.Repositories;
 using Assesment.Infrastructure.Services;
 using Assesment.Infrastructure.UnitOfWorks;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using Autofac;
 
 namespace Assesment.Infrastructure
 {
@@ -50,9 +45,6 @@ namespace Assesment.Infrastructure
                 .InstancePerLifetimeScope();
 
             builder.RegisterType<ApplicationUnitOfWork>().As<IApplicationUnitOfWork>()
-                .InstancePerLifetimeScope();
-
-            builder.RegisterType<DataUtility>().As<IDataUtility>()
                 .InstancePerLifetimeScope();
 
             base.Load(builder);

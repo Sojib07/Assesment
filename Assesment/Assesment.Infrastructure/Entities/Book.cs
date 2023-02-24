@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Assesment.Infrastructure.Entities
+﻿namespace Assesment.Infrastructure.Entities
 {
     public class Book : IEntity<int>
     {

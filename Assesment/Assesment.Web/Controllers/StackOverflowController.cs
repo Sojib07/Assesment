@@ -1,13 +1,6 @@
 ﻿using Assesment.Web.Models;
 using Autofac;
 using Microsoft.AspNetCore.Mvc;
-using Newtonsoft.Json;
-using Newtonsoft.Json.Linq;
-using System.IO.Compression;
-using System.Net.Http.Headers;
-using System.Text;
-using System.Text.Json;
-using System.Text.Json.Nodes;
 
 namespace Assesment.Web.Controllers
 {
