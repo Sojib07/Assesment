@@ -1,0 +1,64 @@
+﻿@{
+    ViewData["Title"] = "DropDown";
+}
+
+<div class="card">
+    <h5 class="card-header">Drop Down Filter</h5>
+    <div class="card-body">
+        <div class="row">
+            <div class="col-md-6">
+                <label for="category">Category:</label>
+                <select id="category">
+                    <option value="">Select a category</option>
+                    <option value="fiction">Fiction</option>
+                    <option value="nonfiction">Non-Fiction</option>
+                </select>
+            </div>
+
+            <div class="col-md-6">
+                <label for="subcategory">Subcategory:</label>
+                <select id="subcategory" disabled>
+                    <option value="">Select a subcategory</option>
+                    <option value="mystery" data-category="fiction">Mystery</option>
+                    <option value="science-fiction" data-category="fiction">Science Fiction</option>
+                    <option value="history" data-category="nonfiction">History</option>
+                    <option value="self-help" data-category="nonfiction">Self-Help</option>
+                </select>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts{
+    <script>
+
+        const categoryDropdown = document.getElementById('category');
+        const subcategoryDropdown = document.getElementById('subcategory');
+
+        const subcategories = {
+            fiction: ['mystery', 'science-fiction'],
+            nonfiction: ['history', 'self-help']
+        };
+
+        categoryDropdown.addEventListener('change', () => {
+
+            const selectedCategory = categoryDropdown.value;
+
+            if (selectedCategory === '') {
+                subcategoryDropdown.disabled = true;
+                subcategoryDropdown.innerHTML = '<option value="">Select a subcategory</option>';
+                return;
+            }
+
+            subcategoryDropdown.disabled = false;
+            subcategoryDropdown.innerHTML = '<option value="">Select a subcategory</option>';
+            subcategories[selectedCategory].forEach(subcategory => {
+                const option = document.createElement('option');
+                option.value = subcategory;
+                option.textContent = subcategory;
+                subcategoryDropdown.appendChild(option);
+            });
+        });
+       
+    </script>
+}

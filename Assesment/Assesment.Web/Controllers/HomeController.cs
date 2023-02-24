@@ -19,19 +19,15 @@ namespace Assesment.Web.Controllers
 
         public async Task<IActionResult> Index()
         {
-            var bookModel = _scope.Resolve<BookModel>();
-            var authorModel=_scope.Resolve<AuthorModel>();
-
-            var a = bookModel.GetAllBooks();
-            var b=bookModel.GetAllBooksWithStoredProcedure();
-
-            var c = authorModel.GetAllAuthors();
-            var d = authorModel.GetAllAuthorsWithStoredProcedure();
-
             return View();
         }
 
-        public IActionResult Privacy()
+        public async Task<IActionResult> Privacy()
+        {
+            return View();
+        }
+
+        public async Task<IActionResult> DropDown()
         {
             return View();
         }
